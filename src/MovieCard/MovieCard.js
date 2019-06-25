@@ -14,8 +14,7 @@ export class MovieCard extends Component {
       <div
         tabIndex="0"
         className="MovieCard"
-        onFocus={this.props.extendInfo}
-        onBlur={this.props.extendInfo}
+        onClick={() => this.props.updateSelection(this.props.name)}
         onMouseEnter={this.handleHover}
         onMouseLeave={this.handleHover}
       >
