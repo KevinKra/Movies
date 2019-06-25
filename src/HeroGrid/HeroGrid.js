@@ -1,10 +1,12 @@
 import React, { Component } from "react";
+import AOS from "aos";
 import "./HeroGrid.scss";
 
 class HeroGrid extends Component {
   render() {
+    AOS.init();
     return (
-      <div className="HeroGrid">
+      <div className="HeroGrid" data-aos="fade-right">
         <h3 className="item1">GridItem 1</h3>
         <h3 className="item2">GridItem 2</h3>
         <h3 className="item3">GridItem 3</h3>
