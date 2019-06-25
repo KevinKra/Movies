@@ -1,5 +1,24 @@
+@import "../styles/animations.scss";
+
 .MovieCard {
   border: 1px solid red;
   height: 250px;
   width: 200px;
+  .overlay {
+    border: 1px solid blue;
+    position: absolute;
+    height: 250px;
+    width: 200px;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.fadeIn {
+  animation: fadeIn 1.5s forwards;
 }
