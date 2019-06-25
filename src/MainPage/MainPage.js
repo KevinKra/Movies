@@ -3,6 +3,7 @@ import "./MainPage.scss";
 import HeroContent from "../HeroContent/HeroContent";
 import Carousel from "../Carousel/Carousel";
 import HeroGrid from "../HeroGrid/HeroGrid";
+import Footer from "../Footer/Footer";
 
 class MainPage extends Component {
   render() {
@@ -13,6 +14,7 @@ class MainPage extends Component {
         <HeroGrid />
         <Carousel />
         <Carousel />
+        <Footer />
       </div>
     );
   }
