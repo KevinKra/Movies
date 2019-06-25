@@ -1,0 +1,10 @@
+@import "../styles/animations.scss";
+
+.box {
+  position: relative;
+  z-index: 1;
+  border: 1px solid green;
+  height: 400px;
+  background-color: #eee;
+  animation: fadeIn 1s forwards;
+}

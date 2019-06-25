@@ -1,0 +1,50 @@
+@import "../styles/animations.scss";
+
+.carousel-container {
+  border: 1px dashed blue;
+  margin: 1rem 0;
+  h4 {
+    margin: 0;
+  }
+}
+
+.carousel {
+  position: relative;
+  animation: slideInRight 0.5s forwards;
+  animation-duration: 1s;
+  display: flex;
+  width: 95vw;
+  height: 250px;
+}
+
+.carousel-expanded {
+  display: flex;
+  flex-direction: column;
+  width: 95vw;
+  animation: expand 0.5s forwards;
+}
+
+.carousel-collapse {
+  display: flex;
+  flex-direction: column;
+  width: 95vw;
+  animation: collapse 0.5s forwards;
+}
+
+@keyframes collapse {
+  from {
+    height: 600px;
+  }
+  to {
+    height: 270px;
+  }
+}
+
+@keyframes expand {
+  from {
+    height: 270px;
+  }
+  to {
+    height: 600px;
+  }
+}

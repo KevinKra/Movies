@@ -1,0 +1,50 @@
+.HeroGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: repeat(6, 1fr);
+  border: 1px solid red;
+  width: 95vw;
+  height: 500px;
+  h3 {
+    margin: 0;
+  }
+}
+
+.item1 {
+  grid-column-start: 1;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  border: 1px solid blue;
+}
+
+.item2 {
+  grid-column-start: 1;
+  grid-row-start: 3;
+  grid-row-end: 5;
+  border: 1px solid green;
+}
+
+.item3 {
+  grid-column-start: 1;
+  grid-row-start: 5;
+  grid-row-end: 7;
+  border: 1px solid orange;
+}
+
+.item4 {
+  grid-row-start: 1;
+  grid-row-end: 4;
+  border: 1px solid red;
+}
+
+.item5 {
+  grid-row-start: 4;
+  grid-row-end: 7;
+  border: 1px solid green;
+}
+
+.item6 {
+  grid-row-start: 1;
+  grid-row-end: 7;
+  border: 1px solid blue;
+}
