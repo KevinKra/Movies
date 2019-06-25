@@ -1,0 +1,17 @@
+@keyframes slideInLeft {
+  from {
+    left: -200%;
+  }
+  to {
+    left: 0px;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    right: -200%;
+  }
+  to {
+    right: 0px;
+  }
+}
