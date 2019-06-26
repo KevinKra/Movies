@@ -18,8 +18,12 @@ class HeroGrid extends Component {
   render() {
     return (
       <div className="HeroGrid" data-aos="fade-right">
-        <div className="item1" style={this.divStyle(image1, "center")}>
-          <p>Documentaries</p>
+        <div className="grid-1-container">
+          <div
+            className="grid-item-1"
+            style={this.divStyle(image1, "center center")}
+          />
+          <h3 className="grids-title">Documentaries</h3>
         </div>
         <div className="item2" style={this.divStyle(image3, "center top")}>
           <p>For all ages</p>
