@@ -18,48 +18,54 @@ class HeroGrid extends Component {
   render() {
     return (
       <div className="HeroGrid" data-aos="fade-right">
-        <div className="grid-1-container">
+        <section className="grid-1-container">
           <div
             className="grid-item"
             style={this.divStyle(image1, "center center")}
           />
-          <h3 className="grid-title">Documentaries</h3>
-        </div>
-        <div className="grid-2-container">
+          <h3 className="grid-title">Groundbreaking</h3>
+          <p className="grid-para">DOCUMENTARIES</p>
+        </section>
+        <section className="grid-2-container">
           <div
             className="grid-item"
-            style={this.divStyle(image3, "center center")}
+            style={this.divStyle(image3, "bottom bottom")}
           />
           <h3 className="grid-title">For All Ages</h3>
-        </div>
-        <div className="grid-3-container">
+          <p className="grid-para">KIDS</p>
+        </section>
+        <section className="grid-3-container">
           <div
             className="grid-item"
             style={this.divStyle(image6, "center center")}
           />
-          <h3 className="grid-title">Music Videos</h3>
-        </div>
-        <div className="grid-4-container">
+          <h3 className="grid-title">Latest and Greatest</h3>
+          <p className="grid-para">MUSIC VIDEOS</p>
+        </section>
+        <section className="grid-4-container">
           <div
             className="grid-item"
-            style={this.divStyle(image4, "center center")}
+            style={this.divStyle(image4, "center bottom")}
           />
-          <h3 className="grid-title">Live TV</h3>
-        </div>
-        <div className="grid-5-container">
+          <h3 className="grid-title">Your Favorite Sports</h3>
+          <p className="grid-para">LIVE TV</p>
+        </section>
+        <section className="grid-5-container">
           <div
             className="grid-item"
             style={this.divStyle(image2, "center center")}
           />
-          <h3 className="grid-title">Watch Horror Films</h3>
-        </div>
-        <div className="grid-6-container">
+          <h3 className="grid-title">New and Classic</h3>
+          <p className="grid-para">SHOWS</p>
+        </section>
+        <section className="grid-6-container">
           <div
             className="grid-item"
             style={this.divStyle(image5, "center center")}
           />
-          <h3 className="grid-title">Galleria Originals</h3>
-        </div>
+          <h3 className="grid-title">Revolutionary</h3>
+          <p className="grid-para">GALLERIA ORIGINALS</p>
+        </section>
       </div>
     );
   }
