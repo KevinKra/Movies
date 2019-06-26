@@ -20,25 +20,45 @@ class HeroGrid extends Component {
       <div className="HeroGrid" data-aos="fade-right">
         <div className="grid-1-container">
           <div
-            className="grid-item-1"
+            className="grid-item"
             style={this.divStyle(image1, "center center")}
           />
-          <h3 className="grids-title">Documentaries</h3>
+          <h3 className="grid-title">Documentaries</h3>
         </div>
-        <div className="item2" style={this.divStyle(image3, "center top")}>
-          <p>For all ages</p>
+        <div className="grid-2-container">
+          <div
+            className="grid-item"
+            style={this.divStyle(image3, "center center")}
+          />
+          <h3 className="grid-title">For All Ages</h3>
         </div>
-        <div className="item3" style={this.divStyle(image6, "center")}>
-          <p>Music Videos</p>
+        <div className="grid-3-container">
+          <div
+            className="grid-item"
+            style={this.divStyle(image6, "center center")}
+          />
+          <h3 className="grid-title">Music Videos</h3>
         </div>
-        <div className="item4" style={this.divStyle(image4, "center")}>
-          <p>Live TV</p>
+        <div className="grid-4-container">
+          <div
+            className="grid-item"
+            style={this.divStyle(image4, "center center")}
+          />
+          <h3 className="grid-title">Live TV</h3>
         </div>
-        <div className="item5" style={this.divStyle(image2, "center")}>
-          <p>Watch Horror films</p>
+        <div className="grid-5-container">
+          <div
+            className="grid-item"
+            style={this.divStyle(image2, "center center")}
+          />
+          <h3 className="grid-title">Watch Horror Films</h3>
         </div>
-        <div className="item6" style={this.divStyle(image5, "center")}>
-          <p>Galleria Originals</p>
+        <div className="grid-6-container">
+          <div
+            className="grid-item"
+            style={this.divStyle(image5, "center center")}
+          />
+          <h3 className="grid-title">Galleria Originals</h3>
         </div>
       </div>
     );
