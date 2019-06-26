@@ -14,10 +14,17 @@
   }
   .grid-title {
     display: inline;
-    position: relative;
+    position: absolute;
     left: 10px;
     top: 10px;
     pointer-events: none;
+    color: white;
+  }
+  .grid-para {
+    display: inline;
+    position: absolute;
+    left: 10px;
+    top: 35px;
     color: white;
   }
 }
