@@ -17,6 +17,14 @@ export class HeroContent extends Component {
           className="hero-image"
           style={this.heroImage(heroImage, "center top")}
         />
+        <div className="hero-movie-details">
+          <h1>Movie Title</h1>
+          <p>Something about the movie</p>
+          <button>Watch</button>
+        </div>
+        <div className="hero-movie-support">
+          <button>Details</button>
+        </div>
       </section>
     );
   }
