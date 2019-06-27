@@ -1,12 +1,23 @@
 import React, { Component } from "react";
+import heroImage from "../images/skateboarder.jpg";
 import "./HeroContent.scss";
 
 export class HeroContent extends Component {
+  heroImage = (image, position) => {
+    return {
+      backgroundImage: `url(${image})`,
+      backgroundPosition: position,
+      backgroundSize: "cover"
+    };
+  };
   render() {
     return (
-      <div className="HeroContent">
-        <h3>hero</h3>
-      </div>
+      <section className="HeroContent">
+        <div
+          className="hero-image"
+          style={this.heroImage(heroImage, "center top")}
+        />
+      </section>
     );
   }
 }
