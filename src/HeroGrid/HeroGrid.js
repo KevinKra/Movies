@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import * as utils from "../utils/";
 import "./HeroGrid.scss";
 import image1 from "../images/woman-climbing.jpg";
