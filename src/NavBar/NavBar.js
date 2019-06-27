@@ -11,11 +11,6 @@ export default class NavBar extends Component {
       let supportPageOffset = window.pageXOffset !== undefined;
       let isCSS1Compat = (document.compatMode || "") === "CSS1Compat";
       let scroll = {
-        x: supportPageOffset
-          ? window.pageXOffset
-          : isCSS1Compat
-          ? document.documentElement.scrollLeft
-          : document.body.scrollLeft,
         y: supportPageOffset
           ? window.pageYOffset
           : isCSS1Compat
@@ -23,13 +18,10 @@ export default class NavBar extends Component {
           : document.body.scrollTop
       };
 
-      if (scroll.y > 25) {
-        this.setState({ opacity: true });
-      }
-      if (scroll.y === 0) {
-        this.setState({ opacity: false });
-      }
-    }); //ms
+      scroll.y > 5
+        ? this.setState({ opacity: true })
+        : this.setState({ opacity: false });
+    });
   }
   render() {
     return (
@@ -44,13 +36,13 @@ export default class NavBar extends Component {
         <div className="nav-width">
           <h3>Galleria</h3>
           <div className="NavLinks">
-            <NavLink to="/home" activeClassName="selected">
+            {/* <NavLink to="/home" activeClassName="selected">
               Home
             </NavLink>
             <NavLink to="/Favorites" activeClassName="selected">
               Favorites
-            </NavLink>
-            <NavLink to="/Login" activeClassName="selected">
+            </NavLink> */}
+            <NavLink to="/" activeClassName="selected">
               Login
             </NavLink>
           </div>
