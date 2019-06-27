@@ -12,7 +12,8 @@ class HeroGrid extends Component {
     return {
       backgroundImage: `url(${image})`,
       backgroundPosition: position,
-      backgroundSize: "cover"
+      backgroundSize: "cover",
+      backgroundRepeat: "no-repeat"
     };
   };
   render() {
