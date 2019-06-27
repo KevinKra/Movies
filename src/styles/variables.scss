@@ -1,3 +1,7 @@
+$accent: rgb(236, 28, 28);
+$accent-hover-darker: rgb(197, 24, 24);
+$accent-hover-lighter: rgb(255, 21, 21);
+
 @mixin gridStyles {
   .grid-item {
     transition: 0.2s filter ease-in-out;
