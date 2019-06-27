@@ -11,11 +11,6 @@ export default class NavBar extends Component {
       let supportPageOffset = window.pageXOffset !== undefined;
       let isCSS1Compat = (document.compatMode || "") === "CSS1Compat";
       let scroll = {
-        x: supportPageOffset
-          ? window.pageXOffset
-          : isCSS1Compat
-          ? document.documentElement.scrollLeft
-          : document.body.scrollLeft,
         y: supportPageOffset
           ? window.pageYOffset
           : isCSS1Compat
