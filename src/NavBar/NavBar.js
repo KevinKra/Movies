@@ -23,13 +23,10 @@ export default class NavBar extends Component {
           : document.body.scrollTop
       };
 
-      if (scroll.y > 25) {
-        this.setState({ opacity: true });
-      }
-      if (scroll.y === 0) {
-        this.setState({ opacity: false });
-      }
-    }); //ms
+      scroll.y > 5
+        ? this.setState({ opacity: true })
+        : this.setState({ opacity: false });
+    });
   }
   render() {
     return (
