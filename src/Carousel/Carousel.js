@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./Carousel.scss";
 import MovieCard from "../MovieCard/MovieCard";
-import infoExtend from "../InfoExtend/InfoExtend";
 import InfoExtend from "../InfoExtend/InfoExtend";
 
 export class Carousel extends Component {
