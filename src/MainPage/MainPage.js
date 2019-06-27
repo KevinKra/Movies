@@ -8,14 +8,16 @@ import Footer from "../Footer/Footer";
 class MainPage extends Component {
   render() {
     return (
-      <div className="MainPage">
+      <main className="MainPage">
         <HeroContent />
-        <Carousel />
-        <HeroGrid />
-        <Carousel />
-        <Carousel />
+        <section className="main-content">
+          <Carousel />
+          <HeroGrid />
+          <Carousel />
+          <Carousel />
+        </section>
         <Footer />
-      </div>
+      </main>
     );
   }
 }
