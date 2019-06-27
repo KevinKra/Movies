@@ -2,9 +2,12 @@
 
 .HeroContent {
   position: relative;
-  border: 1px solid red;
-  width: 95vw;
+  width: 100vw;
   height: 500px;
   animation: slideInLeft 0.5s forwards;
   animation-duration: 1s;
+  .hero-image {
+    height: 100%;
+    width: 100%;
+  }
 }
