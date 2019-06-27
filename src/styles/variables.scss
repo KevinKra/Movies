@@ -1,0 +1,30 @@
+@mixin gridStyles {
+  .grid-item {
+    transition: 0.2s filter ease-in-out;
+    filter: brightness(0.75);
+    &:hover {
+      filter: brightness(1);
+    }
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    z-index: 0;
+    height: 100%;
+    width: 100%;
+  }
+  .grid-title {
+    display: inline;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    pointer-events: none;
+    color: white;
+  }
+  .grid-para {
+    display: inline;
+    position: absolute;
+    left: 10px;
+    top: 35px;
+    color: white;
+  }
+}

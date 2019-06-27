@@ -1,50 +1,50 @@
+@import "../styles/animations.scss";
+@import "../styles/variables.scss";
+
 .HeroGrid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: repeat(6, 1fr);
-  border: 1px solid red;
   width: 95vw;
-  height: 500px;
-  h3 {
-    margin: 0;
+  height: 700px;
+
+  .grid-1-container {
+    position: relative;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    @include gridStyles;
   }
-}
-
-.item1 {
-  grid-column-start: 1;
-  grid-row-start: 1;
-  grid-row-end: 3;
-  border: 1px solid blue;
-}
-
-.item2 {
-  grid-column-start: 1;
-  grid-row-start: 3;
-  grid-row-end: 5;
-  border: 1px solid green;
-}
-
-.item3 {
-  grid-column-start: 1;
-  grid-row-start: 5;
-  grid-row-end: 7;
-  border: 1px solid orange;
-}
-
-.item4 {
-  grid-row-start: 1;
-  grid-row-end: 4;
-  border: 1px solid red;
-}
-
-.item5 {
-  grid-row-start: 4;
-  grid-row-end: 7;
-  border: 1px solid green;
-}
-
-.item6 {
-  grid-row-start: 1;
-  grid-row-end: 7;
-  border: 1px solid blue;
+  .grid-2-container {
+    position: relative;
+    grid-row-start: 3;
+    grid-row-end: 5;
+    @include gridStyles;
+  }
+  .grid-3-container {
+    position: relative;
+    grid-row-start: 5;
+    grid-row-end: 7;
+    @include gridStyles;
+  }
+  .grid-4-container {
+    position: relative;
+    grid-row-start: 1;
+    grid-row-end: 4;
+    @include gridStyles;
+  }
+  .grid-5-container {
+    position: relative;
+    grid-row-start: 4;
+    grid-row-end: 7;
+    @include gridStyles;
+  }
+  .grid-6-container {
+    position: relative;
+    grid-row-start: 1;
+    grid-row-end: 7;
+    @include gridStyles;
+  }
+  section {
+    margin: 0.1rem;
+  }
 }
