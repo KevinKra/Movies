@@ -1,0 +1,33 @@
+@import "../styles/variables.scss";
+
+.form-input {
+  h2 {
+    text-align: center;
+  }
+  display: flex;
+  position: relative;
+  justify-self: center;
+  align-self: center;
+  flex-direction: column;
+  background-color: rgba(46, 46, 46, 0.637);
+  box-shadow: 0 0 15px 5px rgb(17, 17, 17);
+  border-radius: 8px;
+  padding: 1rem;
+  width: 300px;
+  height: 300px;
+}
+.sign-in {
+  text-decoration: none;
+  text-align: center;
+  border: none;
+  padding: 0.3rem;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  border-radius: 3px;
+  background-color: $accent;
+  color: white;
+  &:hover {
+    cursor: pointer;
+    background-color: $accent-hover-darker;
+  }
+}

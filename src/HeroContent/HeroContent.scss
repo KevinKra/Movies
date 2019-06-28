@@ -11,9 +11,17 @@
     width: 100%;
   }
   .hero-movie-details {
-    top: 80px;
+    top: 40px;
     left: 2.5vw;
     position: absolute;
+    h1 {
+      font-size: 78px;
+      margin-bottom: 0;
+    }
+    p {
+      width: 350px;
+      margin-top: 0;
+    }
   }
   .hero-movie-support {
     bottom: 7rem;

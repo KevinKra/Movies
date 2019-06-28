@@ -1,6 +1,8 @@
 $accent: rgb(236, 28, 28);
 $accent-hover-darker: rgb(197, 24, 24);
 $accent-hover-lighter: rgb(255, 21, 21);
+$text-dark: black;
+$text-light: white;
 
 @mixin gridStyles {
   .grid-item {
@@ -30,5 +32,34 @@ $accent-hover-lighter: rgb(255, 21, 21);
     left: 10px;
     top: 35px;
     color: white;
+  }
+}
+
+@mixin input-styling {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  label {
+    transition: 0.2s ease-in-out;
+  }
+  .text-above {
+    pointer-events: none;
+    top: 31px;
+    font-size: 18px;
+    padding-left: 0.6rem;
+    color: $text-dark;
+    position: absolute;
+  }
+  .text-inside {
+    position: absolute;
+    top: 0px;
+    color: $text-light;
+  }
+  input {
+    padding: 0.5rem 0.7rem;
+    margin: 1.5rem 0 0.5rem 0;
+    border: none;
+    outline: none;
+    border-radius: 3px;
   }
 }

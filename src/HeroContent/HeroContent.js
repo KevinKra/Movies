@@ -1,25 +1,23 @@
 import React, { Component } from "react";
+import * as utils from "../utils/";
 import heroImage from "../images/skateboarder.jpg";
 import "./HeroContent.scss";
 
 export class HeroContent extends Component {
-  heroImage = (image, position) => {
-    return {
-      backgroundImage: `url(${image})`,
-      backgroundPosition: position,
-      backgroundSize: "cover"
-    };
-  };
   render() {
     return (
       <section className="HeroContent">
         <div
           className="hero-image"
-          style={this.heroImage(heroImage, "center top")}
+          style={utils.divStyle(heroImage, "center top")}
         />
         <div className="hero-movie-details">
           <h1>Movie Title</h1>
-          <p>Something about the movie</p>
+          <p>
+            Something about the movie, it could be a lot of things or even just
+            a short little snipper regarding the cast or plot. Honestly, who
+            knows at this point. Time will tell.
+          </p>
           <button>Watch</button>
         </div>
         <div className="hero-movie-support">

@@ -1,4 +1,5 @@
 @import "../styles/variables.scss";
+
 .LoginPage {
   display: grid;
   grid-template-rows: 1fr;
@@ -6,9 +7,10 @@
   width: 100vw;
   height: 100vh;
   .login-image {
-    background: url("https://images.unsplash.com/photo-1482160549825-59d1b23cb208?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80");
+    background: url("../images/torn-posters.jpg");
     background-position: center;
     background-size: cover;
+    box-shadow: 0 0 15px 10px black;
   }
   .login-section {
     display: grid;
@@ -17,34 +19,6 @@
     .main-title {
       text-align: center;
       color: $accent;
-    }
-    form {
-      h2 {
-        text-align: center;
-      }
-      display: flex;
-      position: relative;
-      justify-self: center;
-      align-self: center;
-      flex-direction: column;
-      background-color: rgba(46, 46, 46, 0.637);
-      border-radius: 8px;
-      padding: 1rem;
-      width: 300px;
-      height: 300px;
-    }
-    .sign-in {
-      border: none;
-      padding: 0.3rem;
-      margin-top: 1rem;
-      padding: 0.5rem;
-      border-radius: 3px;
-      background-color: $accent;
-      color: white;
-      &:hover {
-        cursor: pointer;
-        background-color: $accent-hover-darker;
-      }
     }
   }
   .new-member {
@@ -67,30 +41,5 @@
   }
 }
 .input-wrapper {
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  label {
-    transition: 0.2s ease-in-out;
-  }
-  .text-above {
-    pointer-events: none;
-    top: 31px;
-    font-size: 18px;
-    padding-left: 0.6rem;
-    color: black;
-    position: absolute;
-  }
-  .text-inside {
-    position: absolute;
-    top: 0px;
-    color: white;
-  }
-  input {
-    padding: 0.5rem 0.7rem;
-    margin: 1.5rem 0 0.5rem 0;
-    border: none;
-    outline: none;
-    border-radius: 3px;
-  }
+  @include input-styling;
 }
