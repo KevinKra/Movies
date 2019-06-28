@@ -1,24 +1,55 @@
 @import "../styles/animations.scss";
 
 .MovieCard {
-  border: 1px solid red;
-  height: 250px;
-  width: 200px;
-  .overlay {
+  margin: 0 0.1rem;
+  position: relative;
+  transition: 0.4s min-width ease-in-out;
+  overflow: hidden;
+  .card-image-container {
+    transition: 1s ease-in-out;
+  }
+  .backdrop {
     border: 1px solid blue;
+    min-width: 470px;
+  }
+  h4 {
     position: absolute;
-    height: 250px;
-    width: 200px;
   }
   &:hover {
     cursor: pointer;
+  }
+  img {
+    color: black;
+    height: 250px;
   }
 }
 
 .hidden {
   opacity: 0;
+  color: white;
 }
 
 .fadeIn {
-  animation: fadeIn 1.5s forwards;
+  animation: fadeIn 0.5s forwards;
 }
+
+.img-fade-in {
+  animation: img-fade-in 1.2s forwards;
+}
+
+// .overlay {
+//   position: absolute;
+//   height: 100%;
+//   width: 100%;
+// }
+// .filter {
+//   position: absolute;
+//   z-index: 0;
+//   height: 100%;
+//   width: 100%;
+//   background-color: rgba(17, 17, 17, 0.589);
+// }
+// .card-interaction {
+//   position: absolute;
+//   z-index: 1;
+// }

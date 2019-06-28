@@ -25,11 +25,11 @@
   }
 }
 
-[data-aos="fade"] {
-  opacity: 0;
-  transition-property: opacity;
-}
-
-[data-aos="fade"].aos-animate {
-  opacity: 1;
+@keyframes img-fade-in {
+  from {
+    filter: brightness(0);
+  }
+  to {
+    filter: brightness(100%);
+  }
 }
