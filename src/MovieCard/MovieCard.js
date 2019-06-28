@@ -25,10 +25,9 @@ export class MovieCard extends Component {
         console.log("don't animate, user moved on.");
         this.setState({ showPoster: true });
       }
-    }, 1000);
+    }, 500);
   };
   render() {
-    // console.log("backdrop", this.props.backdrop);
     const backdrop = `https://image.tmdb.org/t/p/w500/${this.props.backdrop}`;
     const poster = `https://image.tmdb.org/t/p/w185/${this.props.poster}`;
     return (
@@ -38,18 +37,21 @@ export class MovieCard extends Component {
         onClick={() => this.props.updateSelection(this.props.name)}
         onMouseEnter={this.determineTransition}
         onMouseLeave={this.handleHoverOut}
+        style={
+          this.state.showPoster
+            ? { "min-width": "166px" }
+            : { "min-width": "445px" }
+        }
       >
         <div className={`overlay ${this.state.showData ? "fadeIn" : "hidden"}`}>
           <h4 className="card-interaction">{this.props.name}</h4>
           <div className="filter" />
         </div>
-        <div className="card-image-container">
-          {this.state.showPoster ? (
-            <img src={poster} alt="" />
-          ) : (
-            <img src={backdrop} alt="" />
-          )}
-        </div>
+        {this.state.showPoster ? (
+          <img className="img-fade-in" src={poster} alt="" />
+        ) : (
+          <img className="img-fade-in" src={backdrop} alt="" />
+        )}
       </article>
     );
   }
