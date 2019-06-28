@@ -3,34 +3,54 @@ import "./MovieCard.scss";
 
 export class MovieCard extends Component {
   state = {
-    showData: false
+    // showData: false,
+    trigger: false,
+    showPoster: true
   };
-  handleHover = () => {
-    const toggle = this.state.showData;
-    this.setState({ showData: !toggle });
+  handleHoverIn = () => {
+    this.setState({ showPoster: false });
+  };
+
+  handleHoverOut = () => {
+    this.setState({ showPoster: true, trigger: false });
+  };
+
+  determineTransition = () => {
+    this.setState({ trigger: true });
+    setTimeout(() => {
+      if (this.state.trigger) {
+        console.log("animate");
+        this.setState({ showPoster: false });
+      } else {
+        console.log("don't animate, user moved on.");
+        this.setState({ showPoster: true });
+      }
+    }, 1000);
   };
   render() {
+    // console.log("backdrop", this.props.backdrop);
+    const backdrop = `https://image.tmdb.org/t/p/w500/${this.props.backdrop}`;
+    const poster = `https://image.tmdb.org/t/p/w185/${this.props.poster}`;
     return (
-      <div
+      <article
         tabIndex="0"
         className="MovieCard"
         onClick={() => this.props.updateSelection(this.props.name)}
-        onMouseEnter={this.handleHover}
-        onMouseLeave={this.handleHover}
+        onMouseEnter={this.determineTransition}
+        onMouseLeave={this.handleHoverOut}
       >
         <div className={`overlay ${this.state.showData ? "fadeIn" : "hidden"}`}>
-          <i>X</i>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab
-            provident commodi, cumque voluptate blanditiis similique tempora
-            debitis aperiam sunt cum iusto quos ipsum architecto vel alias
-            quaerat ut reprehenderit quod?
-          </p>
+          <h4 className="card-interaction">{this.props.name}</h4>
+          <div className="filter" />
         </div>
-        <h4 className={`overlay ${this.state.showData ? "hidden" : "fadeIn"}`}>
-          Movie Card {this.props.name}
-        </h4>
-      </div>
+        <div className="card-image-container">
+          {this.state.showPoster ? (
+            <img src={poster} alt="" />
+          ) : (
+            <img src={backdrop} alt="" />
+          )}
+        </div>
+      </article>
     );
   }
 }
