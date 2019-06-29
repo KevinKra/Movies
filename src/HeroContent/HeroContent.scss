@@ -1,4 +1,5 @@
 @import "../styles/animations.scss";
+@import "../styles/variables.scss";
 
 .HeroContent {
   position: relative;
@@ -11,9 +12,9 @@
     width: 100%;
   }
   .hero-movie-details {
+    position: absolute;
     top: 40px;
     left: 2.5vw;
-    position: absolute;
     h1 {
       font-size: 78px;
       margin-bottom: 0;
@@ -27,5 +28,17 @@
     bottom: 7rem;
     right: 4vw;
     position: absolute;
+  }
+  .opacity-filter {
+    position: absolute;
+    background: linear-gradient(
+      0deg,
+      $background-color 0%,
+      $background-color 6%,
+      rgba(0, 0, 0, 0) 50%
+    );
+    top: 0;
+    height: 100%;
+    width: 100%;
   }
 }

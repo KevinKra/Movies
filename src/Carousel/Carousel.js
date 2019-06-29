@@ -34,34 +34,53 @@ export class Carousel extends Component {
 
   //proof of concept, will need to dump/modify with proper data.
   renderExtData = () => {
-    return this.state.films[this.state.currentSelection - 1];
+    return this.state.movies[this.state.currentSelection - 1];
+  };
+
+  renderCards = () => {
+    if (!this.props.films || this.props.films.length === 0) {
+      console.log("empty");
+    } else {
+      console.log("data", this.props.films);
+      return this.props.films.map(film => {
+        return (
+          <MovieCard
+            name={film.title}
+            overview={film.overview}
+            releaseDate={film.release_date}
+            voteAverage={film.vote_average}
+            language={film.original_language}
+            poster={film.poster_path}
+            backdrop={film.backdrop_path}
+            expandExtendInfo={this.expandExtendInfo}
+            toggle={this.toggle}
+            updateSelection={this.updateSelection}
+            key={film.id}
+            id={film.id}
+          />
+        );
+      });
+    }
   };
 
   render() {
     return (
       <section
-        onMouseLeave={this.collapseExtendInfo}
+        //!== READ -- BUG !==
+        // onMouseLeave function collapses the container when the user leaves the section,
+        // however, it also triggers a rerender of it's children resulting in
+        // an unwanted extra firing of the renderCards() function. Consider moving this
+        // function elsewhere.
+        // ===========
+        // onMouseLeave={this.collapseExtendInfo}
         className={`carousel-container ${
           this.state.extendInfo || this.state.hovering
             ? "carousel-expanded"
             : "carousel-collapse"
         }`}
       >
-        <h4>Name</h4>
-        <div className="carousel">
-          {this.state.films.map((film, i) => {
-            return (
-              <MovieCard
-                name={film}
-                key={i}
-                expandExtendInfo={this.expandExtendInfo}
-                // collapseExtendInfo={this.collapseExtendInfo}
-                toggle={this.toggle}
-                updateSelection={this.updateSelection}
-              />
-            );
-          })}
-        </div>
+        <h4>{this.props.title || "name"}</h4>
+        <div className="carousel">{this.renderCards()}</div>
         {this.state.extendInfo || this.state.hovering ? (
           <InfoExtend
             handleMouseOut={this.handleMouseOut}
