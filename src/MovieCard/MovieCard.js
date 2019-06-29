@@ -3,37 +3,22 @@ import "./MovieCard.scss";
 
 export class MovieCard extends Component {
   state = {
-    // displayDetails: false,
-    trigger: 0,
     showPoster: true,
     displayOverlay: false
   };
 
   handleHoverIn = () => {
-    this.setState({ showPoster: false });
+    this.setState({
+      showPoster: false,
+      displayOverlay: true
+    });
   };
 
   handleHoverOut = () => {
-    this.setState({ showPoster: true, trigger: 0, displayOverlay: false });
-  };
-
-  determineTransition = () => {
-    this.setState({ trigger: 1 });
-    setTimeout(() => {
-      if (this.state.trigger) {
-        console.log("animate");
-        this.setState({ showPoster: false });
-      } else {
-        console.log("don't animate, user moved on.");
-        this.setState({ showPoster: true });
-      }
-    }, 500);
-  };
-
-  displayOverlay = () => {
-    setTimeout(() => {
-      this.setState({ displayOverlay: true, trigger: 0 });
-    }, 450);
+    this.setState({
+      showPoster: true,
+      displayOverlay: false
+    });
   };
 
   render() {
@@ -56,16 +41,13 @@ export class MovieCard extends Component {
       <article
         className="MovieCard"
         onClick={() => this.props.updateSelection(this.props.name)}
-        onMouseEnter={this.determineTransition}
+        onMouseEnter={this.handleHoverIn}
         onMouseLeave={this.handleHoverOut}
         tabIndex="0"
         style={
           this.state.showPoster ? { minWidth: "166px" } : { minWidth: "445px" }
         }
       >
-        {!this.state.showPoster && this.state.trigger
-          ? this.displayOverlay()
-          : null}
         {this.state.displayOverlay && overlay}
         {this.state.showPoster ? (
           <img className="img-fade-in" src={poster} alt="" />
