@@ -1,7 +1,6 @@
 @import "../styles/animations.scss";
 
 .carousel-container {
-  // border: 1px dashed blue;
   margin: 1rem 0;
   h4 {
     margin: 0 0 1rem 0.2rem;
@@ -18,7 +17,6 @@
   overflow-y: hidden;
   display: flex;
   width: 95vw;
-  // height: 250px;
 }
 
 .carousel-expanded {

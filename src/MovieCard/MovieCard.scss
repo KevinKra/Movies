@@ -5,22 +5,50 @@
   position: relative;
   transition: 0.4s min-width ease-in-out;
   overflow: hidden;
-  .card-image-container {
-    transition: 1s ease-in-out;
-  }
-  .backdrop {
-    border: 1px solid blue;
-    min-width: 470px;
-  }
-  h4 {
-    position: absolute;
-  }
   &:hover {
     cursor: pointer;
   }
   img {
     color: black;
     height: 250px;
+  }
+  .overlay {
+    // border: 1px solid red;
+    position: absolute;
+    z-index: 5;
+    height: 100%;
+    width: 100%;
+    animation: fade-in-temp-hold 15s forwards;
+    .filter {
+      height: 100%;
+      background-color: black;
+      filter: opacity(35%);
+    }
+  }
+}
+
+.card-content {
+  color: white;
+  position: absolute;
+  z-index: 2;
+  bottom: 0;
+  width: 100%;
+  .card-details {
+    display: flex;
+    margin: 0.5rem 0 1rem;
+  }
+  .card-language {
+    color: rgb(1, 182, 1);
+    font-weight: bold;
+  }
+  h4 {
+    font-size: 20px;
+    padding-left: 1rem;
+    margin: 0;
+  }
+  p {
+    margin: 0;
+    padding-left: 1rem;
   }
 }
 
