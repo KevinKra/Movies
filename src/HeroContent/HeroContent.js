@@ -11,6 +11,7 @@ export class HeroContent extends Component {
           className="hero-image"
           style={utils.divStyle(heroImage, "center top")}
         />
+        <div className="opacity-filter" />
         <div className="hero-movie-details">
           <h1>Movie Title</h1>
           <p>
