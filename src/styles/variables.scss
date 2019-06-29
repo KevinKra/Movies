@@ -3,6 +3,7 @@ $accent-hover-darker: rgb(197, 24, 24);
 $accent-hover-lighter: rgb(255, 21, 21);
 $text-dark: black;
 $text-light: white;
+$background-color: rgb(19, 19, 19);
 
 @mixin gridStyles {
   .grid-item {
