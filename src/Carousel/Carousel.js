@@ -16,7 +16,6 @@ export class Carousel extends Component {
   };
 
   collapseExtendInfo = () => {
-    // console.log("collapseExtendInfo firing");
     this.setState({ extendInfo: false });
   };
 
@@ -39,7 +38,6 @@ export class Carousel extends Component {
   };
 
   renderCards = () => {
-    let output = {};
     if (!this.props.films || this.props.films.length === 0) {
       console.log("empty");
     } else {
@@ -49,13 +47,16 @@ export class Carousel extends Component {
           <MovieCard
             name={film.title}
             overview={film.overview}
-            key={film.id}
-            id={film.id}
+            releaseDate={film.release_date}
+            voteAverage={film.vote_average}
+            language={film.original_language}
             poster={film.poster_path}
             backdrop={film.backdrop_path}
             expandExtendInfo={this.expandExtendInfo}
             toggle={this.toggle}
             updateSelection={this.updateSelection}
+            key={film.id}
+            id={film.id}
           />
         );
       });
