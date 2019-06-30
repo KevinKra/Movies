@@ -23,7 +23,7 @@ export const HeroContent = props => {
             <button>Watch</button>
           </div>
           <div className="hero-movie-support">
-            <button>More</button>
+            <button disabled>More</button>
           </div>
         </section>
       );

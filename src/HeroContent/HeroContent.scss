@@ -52,4 +52,10 @@
     height: 100%;
     width: 100%;
   }
+  button {
+    border: 1px solid $text-light;
+    color: $text-light;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.26);
+  }
 }
