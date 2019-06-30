@@ -3,6 +3,7 @@
 
 .HeroContent {
   position: relative;
+  color: $text-light;
   width: 100vw;
   height: 650px;
   animation: slideInLeft 0.5s forwards;
@@ -13,15 +14,25 @@
   }
   .hero-movie-details {
     position: absolute;
-    top: 40px;
-    left: 2.5vw;
-    h1 {
-      font-size: 78px;
+    width: 30%;
+    padding: 3.5rem 0 2rem 2.2rem;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 0.2987570028011205) 91%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    top: 0;
+    left: 0;
+    h2 {
+      font-size: 64px;
       margin-bottom: 0;
     }
     p {
-      width: 350px;
-      margin-top: 0;
+      width: 90%;
+      line-height: 1.2;
+      margin-top: 0.5rem;
     }
   }
   .hero-movie-support {
