@@ -7,7 +7,8 @@ export class Carousel extends Component {
   state = {
     disabled: true,
     hovering: false,
-    extendInfo: false
+    extendInfo: false,
+    currentFilm: {}
   };
 
   handleMouseEnter = () => {
@@ -30,7 +31,7 @@ export class Carousel extends Component {
       return film.id === movie.id;
     });
     console.log(movieData);
-    this.setState({ extendInfo: true });
+    this.setState({ extendInfo: true, currentFilm: movieData });
   };
 
   renderCards = () => {
@@ -75,7 +76,9 @@ export class Carousel extends Component {
         >
           {this.renderCards()}
         </div>
-        {this.state.extendInfo && <InfoExtend />}
+        {this.state.extendInfo && (
+          <InfoExtend information={this.state.currentFilm} />
+        )}
       </section>
     );
   }
