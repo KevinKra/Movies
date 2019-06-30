@@ -41,7 +41,7 @@ export class MovieCard extends Component {
     return (
       <article
         className="MovieCard"
-        onClick={() => this.props.updateSelection(this.props.name)}
+        onClick={() => this.props.extendInfo(this.props)}
         onMouseOver={this.handleHoverIn}
         onMouseLeave={this.handleHoverOut}
         tabIndex="0"
