@@ -6,7 +6,8 @@ import InfoExtend from "../InfoExtend/InfoExtend";
 export class Carousel extends Component {
   state = {
     disabled: true,
-    hovering: false
+    hovering: false,
+    extendInfo: false
   };
 
   handleMouseEnter = () => {
@@ -15,13 +16,21 @@ export class Carousel extends Component {
   };
 
   handleMouseLeave = () => {
-    this.setState({ disabled: true, hovering: false });
+    this.setState({ disabled: true, hovering: false, extendInfo: false });
   };
 
   enableContent = () => {
     setTimeout(() => {
       this.state.hovering && this.setState({ disabled: false });
     }, 500);
+  };
+
+  extendInfo = movie => {
+    const movieData = this.props.films.find(film => {
+      return film.id === movie.id;
+    });
+    console.log(movieData);
+    this.setState({ extendInfo: true });
   };
 
   renderCards = () => {
@@ -38,10 +47,8 @@ export class Carousel extends Component {
             language={film.original_language}
             poster={film.poster_path}
             backdrop={film.backdrop_path}
-            expandExtendInfo={this.expandExtendInfo}
-            toggle={this.toggle}
-            updateSelection={this.updateSelection}
             disabled={this.state.disabled}
+            extendInfo={this.extendInfo}
             key={film.id}
             id={film.id}
           />
@@ -68,6 +75,7 @@ export class Carousel extends Component {
         >
           {this.renderCards()}
         </div>
+        {this.state.extendInfo && <InfoExtend />}
       </section>
     );
   }
