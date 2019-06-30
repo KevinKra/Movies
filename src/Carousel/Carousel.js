@@ -75,9 +75,11 @@ export class Carousel extends Component {
         >
           {this.renderCards()}
         </div>
-        {this.state.extendInfo && (
-          <InfoExtend information={this.state.currentFilm} />
-        )}
+
+        <InfoExtend
+          information={this.state.currentFilm}
+          extendInfo={this.state.extendInfo}
+        />
       </section>
     );
   }
