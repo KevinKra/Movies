@@ -1,9 +1,7 @@
 @import "../styles/animations.scss";
 
 .carousel-container {
-  // border: 1px solid red;
-  position: relative;
-  margin: 1rem 0 0 0;
+  margin: 1rem 0;
   h4 {
     margin: 0 0 1rem 0.2rem;
     font-size: 28px;
@@ -12,12 +10,14 @@
 }
 
 .carousel {
-  // border: 1px solid red;
-  position: relative;
   animation: slideInRight 0.5s forwards;
+  // border: 1px solid red;
   animation-duration: 1s;
-  overflow-x: scroll;
   overflow-y: hidden;
   display: flex;
   width: 95vw;
+}
+
+.carousel::-webkit-scrollbar {
+  width: 0 !important;
 }
