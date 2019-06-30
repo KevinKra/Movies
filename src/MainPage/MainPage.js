@@ -29,8 +29,6 @@ class MainPage extends Component {
         <section className="main-content">
           <Carousel title="Popular movies" films={this.state.movies} />
           <HeroGrid />
-          <Carousel />
-          <Carousel />
         </section>
         <Footer />
       </main>
