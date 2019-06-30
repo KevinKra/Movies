@@ -35,7 +35,7 @@ export class Carousel extends Component {
 
   renderCards = () => {
     if (!this.props.films || this.props.films.length === 0) {
-      console.log("empty");
+      console.log("awaiting fetch");
     } else {
       return this.props.films.map(film => {
         return (
