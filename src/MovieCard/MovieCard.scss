@@ -13,7 +13,6 @@
     height: 250px;
   }
   .overlay {
-    // border: 1px solid red;
     position: absolute;
     z-index: 5;
     height: 100%;
@@ -64,20 +63,3 @@
 .img-fade-in {
   animation: img-fade-in 1.2s forwards;
 }
-
-// .overlay {
-//   position: absolute;
-//   height: 100%;
-//   width: 100%;
-// }
-// .filter {
-//   position: absolute;
-//   z-index: 0;
-//   height: 100%;
-//   width: 100%;
-//   background-color: rgba(17, 17, 17, 0.589);
-// }
-// .card-interaction {
-//   position: absolute;
-//   z-index: 1;
-// }
