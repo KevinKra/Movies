@@ -1,6 +1,7 @@
 @import "../styles/animations.scss";
 
 .carousel-container {
+  position: relative;
   margin: 1rem 0;
   h4 {
     margin: 0 0 1rem 0.2rem;
