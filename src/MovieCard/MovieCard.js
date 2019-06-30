@@ -3,21 +3,22 @@ import "./MovieCard.scss";
 
 export class MovieCard extends Component {
   state = {
+    trigger: false,
     showPoster: true,
     displayOverlay: false
   };
 
   handleHoverIn = () => {
-    this.setState({
-      showPoster: false,
-      displayOverlay: true
-    });
+    if (!this.props.disabled) {
+      this.setState({ trigger: true, showPoster: false, displayOverlay: true });
+    }
   };
 
   handleHoverOut = () => {
     this.setState({
       showPoster: true,
-      displayOverlay: false
+      displayOverlay: false,
+      trigger: false
     });
   };
 
@@ -41,7 +42,7 @@ export class MovieCard extends Component {
       <article
         className="MovieCard"
         onClick={() => this.props.updateSelection(this.props.name)}
-        onMouseEnter={this.handleHoverIn}
+        onMouseOver={this.handleHoverIn}
         onMouseLeave={this.handleHoverOut}
         tabIndex="0"
         style={
