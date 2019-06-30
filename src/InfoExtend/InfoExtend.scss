@@ -1,10 +1,39 @@
 @import "../styles/animations.scss";
+@import "../styles/variables.scss";
 
-.box {
+.expansion-container {
   position: relative;
-  z-index: 1;
-  border: 1px solid green;
-  height: 400px;
-  background-color: #eee;
+  width: 95vw;
+  z-index: 2;
+  // border: 1px solid orange;
+  color: white;
   animation: fadeIn 1s forwards;
+  .background-image {
+    // border: 1px solid blue;
+    width: 100%;
+    height: auto;
+  }
+  .img-gradient {
+    position: absolute;
+    // border: 2px solid green;
+    z-index: 1;
+    height: 463px;
+    width: 100%;
+    background: $background-color;
+    background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 1) 42%,
+      rgba(0, 0, 0, 0) 60%
+    );
+  }
+  img {
+    // border: 1px solid red;
+    width: 60%;
+    padding-left: 40%;
+  }
+  section {
+    z-index: 3;
+    position: absolute;
+  }
 }
