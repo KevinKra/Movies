@@ -6,31 +6,24 @@ export default function InfoExtend(props) {
     props.information.backdrop_path
   }`;
   return (
-    <React.Fragment>
-      {console.log("props", props)}
-      <article
-        className="expansion-container"
-        // onMouseOver={props.handleMouseOver}
-        // onMouseLeave={props.handleMouseOut}
-      >
-        <section>
-          <h1>{props.information.title}</h1>
-          <p>{props.information.overview}</p>
-          <p>{props.information.vote_average}</p>
-          <p>{props.information.original_language}</p>
-        </section>
-        <div className="background-image">
-          <div className="img-gradient" />
-          <img src={backgroundImage} alt="" />
-          {/* <img
+    <article className="expansion-container">
+      <section>
+        <h1>{props.information.title}</h1>
+        <p>{props.information.overview}</p>
+        <p>{props.information.vote_average}</p>
+        <p>{props.information.original_language}</p>
+      </section>
+      <div className="background-image">
+        <div className="img-gradient" />
+        <img src={backgroundImage} alt="" />
+        {/* <img
             src={
               "https://image.tmdb.org/t/p/original/m67smI1IIMmYzCl9axvKNULVKLr.jpg" ||
               backgroundImage
             }
             alt=""
           /> */}
-        </div>
-      </article>
-    </React.Fragment>
+      </div>
+    </article>
   );
 }

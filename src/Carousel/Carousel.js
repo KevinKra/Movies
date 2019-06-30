@@ -30,7 +30,6 @@ export class Carousel extends Component {
     const movieData = this.props.films.find(film => {
       return film.id === movie.id;
     });
-    console.log(movieData);
     this.setState({ extendInfo: true, currentFilm: movieData });
   };
 
