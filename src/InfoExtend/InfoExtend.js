@@ -8,7 +8,7 @@ export default function InfoExtend(props) {
       onMouseOver={props.handleMouseOver}
       onMouseLeave={props.handleMouseOut}
     >
-      <h1>content: {props.renderExtData()}</h1>
+      {/* <h1>content: {props.renderExtData()}</h1> */}
       <h1>Content</h1>
       <h1>Content</h1>
       <h1>Content</h1>
