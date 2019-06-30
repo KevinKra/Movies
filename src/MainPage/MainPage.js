@@ -25,10 +25,12 @@ class MainPage extends Component {
   render() {
     return (
       <main className="MainPage">
-        <HeroContent />
+        <HeroContent films={this.state.movies} />
         <section className="main-content">
           <Carousel title="Popular movies" films={this.state.movies} />
           <HeroGrid />
+          <Carousel title="Popular movies" films={this.state.movies} />
+          <Carousel title="Popular movies" films={this.state.movies} />
         </section>
         <Footer />
       </main>
