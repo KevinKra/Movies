@@ -2,6 +2,7 @@
 
 .carousel-container {
   margin: 1rem 0;
+  // border: 1px solid red;
   h4 {
     margin: 0 0 1rem 0.2rem;
     font-size: 28px;
@@ -10,43 +11,13 @@
 }
 
 .carousel {
-  position: relative;
   animation: slideInRight 0.5s forwards;
   animation-duration: 1s;
-  overflow-x: scroll;
   overflow-y: hidden;
   display: flex;
   width: 95vw;
 }
 
-.carousel-expanded {
-  display: flex;
-  flex-direction: column;
-  width: 95vw;
-  animation: expand 0.5s forwards;
-}
-
-.carousel-collapse {
-  display: flex;
-  flex-direction: column;
-  width: 95vw;
-  animation: collapse 0.5s forwards;
-}
-
-@keyframes collapse {
-  from {
-    height: 600px;
-  }
-  to {
-    height: 100%;
-  }
-}
-
-@keyframes expand {
-  from {
-    height: 270px;
-  }
-  to {
-    height: 450px;
-  }
+.carousel::-webkit-scrollbar {
+  width: 0 !important;
 }

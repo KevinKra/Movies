@@ -1,10 +1,43 @@
 @import "../styles/animations.scss";
+@import "../styles/variables.scss";
 
-.box {
+.expansion-container {
   position: relative;
-  z-index: 1;
-  border: 1px solid green;
-  height: 400px;
-  background-color: #eee;
-  animation: fadeIn 1s forwards;
+  margin: 0 auto;
+  width: 94.97vw;
+  z-index: 2;
+  overflow: hidden;
+  display: flex;
+  // border: 1px solid orange;
+  margin-top: -1.3rem;
+  color: white;
+  transition: 0.5s height ease-in-out;
+  .background-image {
+    display: flex;
+    position: relative;
+    width: 100%;
+    // border: 3px solid green;
+    height: 500px;
+  }
+  .img-gradient {
+    // border: 1px solid blue;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    min-width: 300px;
+    box-shadow: 30px 0px 62px 60px black;
+    background: black;
+  }
+  img {
+    // border: 2px solid red;
+    height: 500px;
+  }
+  section {
+    // border: 1px solid red;
+    z-index: 3;
+    position: absolute;
+    width: 100%;
+    min-width: 275px;
+    height: 500px;
+  }
 }

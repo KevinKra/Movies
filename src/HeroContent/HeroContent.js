@@ -1,32 +1,35 @@
-import React, { Component } from "react";
+import React from "react";
 import * as utils from "../utils/";
-import heroImage from "../images/skateboarder.jpg";
 import "./HeroContent.scss";
 
-export class HeroContent extends Component {
-  render() {
-    return (
-      <section className="HeroContent">
-        <div
-          className="hero-image"
-          style={utils.divStyle(heroImage, "center top")}
-        />
-        <div className="opacity-filter" />
-        <div className="hero-movie-details">
-          <h1>Movie Title</h1>
-          <p>
-            Something about the movie, it could be a lot of things or even just
-            a short little snipper regarding the cast or plot. Honestly, who
-            knows at this point. Time will tell.
-          </p>
-          <button>Watch</button>
-        </div>
-        <div className="hero-movie-support">
-          <button>Details</button>
-        </div>
-      </section>
-    );
-  }
-}
+export const HeroContent = props => {
+  const selectFromPool = () => {
+    if (!props.films || props.films.length !== 0) {
+      const index = Math.floor(Math.random() * (props.films.length - 1));
+      const movie = props.films[index];
+      return (
+        <section className="HeroContent">
+          <div
+            className="hero-image"
+            style={utils.divStyle(
+              `https://image.tmdb.org/t/p/original${movie.backdrop_path}`,
+              "center top"
+            )}
+          />
+          <div className="opacity-filter" />
+          <div className="hero-movie-details">
+            <h2>{movie.original_title}</h2>
+            <p>{movie.overview}</p>
+            <button>Watch</button>
+          </div>
+          <div className="hero-movie-support">
+            <button>More</button>
+          </div>
+        </section>
+      );
+    }
+  };
+  return <React.Fragment>{selectFromPool()}</React.Fragment>;
+};
 
 export default HeroContent;

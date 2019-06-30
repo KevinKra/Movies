@@ -8,9 +8,9 @@ $background-color: rgb(19, 19, 19);
 @mixin gridStyles {
   .grid-item {
     transition: 0.2s filter ease-in-out;
-    filter: brightness(0.75);
+    filter: brightness(1);
     &:hover {
-      filter: brightness(1);
+      filter: brightness(1.1);
     }
     position: absolute;
     margin: 0;
