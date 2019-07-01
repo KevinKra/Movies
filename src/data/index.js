@@ -40,7 +40,7 @@ export const curatedData = [
     poster_path: "/ziEuG1essDuWuC5lpWUaw1uXY2O.jpg",
     release_date: "2019-05-15",
     title: "John Wick: Chapter 3 – Parabellum",
-
+    rating: "R",
     video: false,
     vote_average: 7.2
   },
@@ -55,7 +55,7 @@ export const curatedData = [
     poster_path: "/7SPhr7Qj39vbnfF9O2qHRYaKHAL.jpg",
     release_date: "2019-04-04",
     title: "Pet Sematary",
-
+    rating: "R",
     video: false,
     vote_average: 5.8
   },
@@ -70,7 +70,7 @@ export const curatedData = [
     poster_path: "/or06FN3Dka5tukK1e9sl16pB3iy.jpg",
     release_date: "2019-04-24",
     title: "Avengers: Endgame",
-
+    rating: "PG-13",
     video: false,
     vote_average: 8.4
   }
