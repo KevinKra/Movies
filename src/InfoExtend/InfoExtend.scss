@@ -9,7 +9,7 @@
   overflow: hidden;
   display: flex;
   margin-top: -1.3rem;
-  color: white;
+  color: $text-light;
   transition: 0.5s height ease-in-out;
   .background-image {
     display: flex;
@@ -34,5 +34,6 @@
     width: 100%;
     min-width: 275px;
     height: 500px;
+    padding-left: 1rem;
   }
 }
