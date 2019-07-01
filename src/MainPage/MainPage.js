@@ -42,7 +42,6 @@ class MainPage extends Component {
       `
     );
     const movies = await response.json();
-    console.log(movies);
     this.setState({ trendingMovies: movies.results });
   };
 
@@ -52,7 +51,6 @@ class MainPage extends Component {
       `
     );
     const movies = await response.json();
-    console.log(movies);
     this.setState({ trendingShows: movies.results });
   };
 
