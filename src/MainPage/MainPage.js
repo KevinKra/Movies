@@ -11,13 +11,17 @@ class MainPage extends Component {
     popularMovies: [],
     actionMovies: [],
     trendingMovies: [],
-    trendingShows: []
+    trendingShows: [],
+    classicMovies: [],
+    classicShows: []
   };
   componentDidMount() {
     this.fetchTrendingShows();
     this.fetchTrendingMovies();
     this.fetchPopularMovies();
     this.fetchActionMovies();
+    this.fetchClassicMovies();
+    this.fetchClassicShows();
   }
 
   fetchPopularMovies = async () => {
@@ -54,15 +58,40 @@ class MainPage extends Component {
     this.setState({ trendingShows: movies.results });
   };
 
+  fetchClassicMovies = async () => {
+    let response = await fetch(
+      `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`
+    );
+    const movies = await response.json();
+    this.setState({ classicMovies: movies.results });
+  };
+
+  fetchClassicShows = async () => {
+    let response = await fetch(
+      `https://api.themoviedb.org/3/tv/top_rated?api_key=${API_KEY}&language=en-US&page=1
+      `
+    );
+    const movies = await response.json();
+    this.setState({ classicShows: movies.results });
+  };
+
   render() {
     return (
       <main className="MainPage">
         <HeroContent films={this.state.movies} />
         <section className="main-content">
-          <Carousel title="Popular movies" films={this.state.popularMovies} />
-          <Carousel title="Trending shows" films={this.state.trendingShows} />
-          <Carousel title="Trending movies" films={this.state.trendingMovies} />
+          <Carousel title="Popular Movies" films={this.state.popularMovies} />
+          <Carousel title="Trending Shows" films={this.state.trendingShows} />
+          <Carousel title="Trending Movies" films={this.state.trendingMovies} />
           <HeroGrid />
+          <Carousel
+            title="Timeless Classic Movies"
+            films={this.state.classicMovies}
+          />
+          <Carousel
+            title="Your Favorite Shows"
+            films={this.state.classicShows}
+          />
           <Carousel title="Action movies" films={this.state.actionMovies} />
         </section>
         <Footer />
