@@ -40,7 +40,7 @@ export class Carousel extends Component {
       return this.props.films.map(film => {
         return (
           <MovieCard
-            name={film.title}
+            name={film.title || film.name}
             overview={film.overview}
             releaseDate={film.release_date}
             voteAverage={film.vote_average}
