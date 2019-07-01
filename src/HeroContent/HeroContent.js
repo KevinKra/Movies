@@ -23,7 +23,9 @@ export const HeroContent = props => {
           <button>Watch</button>
         </div>
         <div className="hero-movie-support">
-          <button disabled>More</button>
+          <p className="rating" disabled>
+            {movie.rating}
+          </p>
         </div>
       </section>
     );
