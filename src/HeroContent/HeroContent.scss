@@ -5,7 +5,7 @@
   position: relative;
   color: $text-light;
   width: 100vw;
-  height: 650px;
+  height: 750px;
   animation: slideInLeft 0.5s forwards;
   animation-duration: 1s;
   .hero-image {
@@ -36,7 +36,7 @@
     }
   }
   .hero-movie-support {
-    bottom: 7rem;
+    bottom: 12rem;
     right: 4vw;
     position: absolute;
   }

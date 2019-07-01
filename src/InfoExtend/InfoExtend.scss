@@ -8,7 +8,6 @@
   z-index: 2;
   overflow: hidden;
   display: flex;
-  // border: 1px solid orange;
   margin-top: -1.3rem;
   color: white;
   transition: 0.5s height ease-in-out;
@@ -16,11 +15,9 @@
     display: flex;
     position: relative;
     width: 100%;
-    // border: 3px solid green;
     height: 500px;
   }
   .img-gradient {
-    // border: 1px solid blue;
     position: relative;
     z-index: 1;
     width: 100%;
@@ -29,11 +26,9 @@
     background: black;
   }
   img {
-    // border: 2px solid red;
     height: 500px;
   }
   section {
-    // border: 1px solid red;
     z-index: 3;
     position: absolute;
     width: 100%;
