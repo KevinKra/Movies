@@ -8,18 +8,52 @@ import API_KEY from "../api/";
 
 class MainPage extends Component {
   state = {
-    movies: []
+    popularMovies: [],
+    actionMovies: [],
+    trendingMovies: [],
+    trendingShows: []
   };
   componentDidMount() {
-    this.callData();
+    this.fetchTrendingShows();
+    this.fetchTrendingMovies();
+    this.fetchPopularMovies();
+    this.fetchActionMovies();
   }
 
-  callData = async () => {
+  fetchPopularMovies = async () => {
     let response = await fetch(
       `https://api.themoviedb.org/3/discover/movie?certification_country=US&api_key=${API_KEY}`
     );
     const movies = await response.json();
-    this.setState({ movies: movies.results });
+    this.setState({ popularMovies: movies.results });
+  };
+
+  fetchActionMovies = async () => {
+    let response = await fetch(
+      `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=28`
+    );
+    const movies = await response.json();
+    this.setState({ actionMovies: movies.results });
+  };
+
+  fetchTrendingMovies = async () => {
+    let response = await fetch(
+      `https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}
+      `
+    );
+    const movies = await response.json();
+    console.log(movies);
+    this.setState({ trendingMovies: movies.results });
+  };
+
+  fetchTrendingShows = async () => {
+    let response = await fetch(
+      `https://api.themoviedb.org/3/trending/tv/week?api_key=${API_KEY}
+      `
+    );
+    const movies = await response.json();
+    console.log(movies);
+    this.setState({ trendingShows: movies.results });
   };
 
   render() {
@@ -27,10 +61,11 @@ class MainPage extends Component {
       <main className="MainPage">
         <HeroContent films={this.state.movies} />
         <section className="main-content">
-          <Carousel title="Popular movies" films={this.state.movies} />
+          <Carousel title="Popular movies" films={this.state.popularMovies} />
+          <Carousel title="Trending shows" films={this.state.trendingShows} />
+          <Carousel title="Trending movies" films={this.state.trendingMovies} />
           <HeroGrid />
-          <Carousel title="Popular movies" films={this.state.movies} />
-          <Carousel title="Popular movies" films={this.state.movies} />
+          <Carousel title="Action movies" films={this.state.actionMovies} />
         </section>
         <Footer />
       </main>
