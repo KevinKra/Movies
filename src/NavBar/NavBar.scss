@@ -10,17 +10,16 @@
     margin: 0;
     padding: 1rem 0;
   }
-  .NavLinks {
+  .nav-links {
     display: flex;
     margin: 0;
-    padding: 0;
+    padding: 0.5rem 2.5rem;
   }
   a {
     margin: auto 0;
     text-decoration: none;
-    margin: 1rem;
     &:hover {
-      color: red;
+      color: $accent;
     }
   }
 }
@@ -28,6 +27,7 @@
 .nav-width {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin: 0 auto;
   width: 95vw;
 }
@@ -37,10 +37,20 @@
   background-color: white;
   transition: background-color 0.5s ease 0s;
   box-shadow: 0 0 4px grey;
+  .nav-links {
+    background-color: $text-dark;
+    height: 20px;
+  }
+  a {
+    color: $text-light;
+  }
 }
 
 .transparent {
   color: $text-light;
   background-color: rgba(255, 255, 255, 0);
   transition: background-color 0.5s ease 0s;
+  a {
+    color: $text-light;
+  }
 }

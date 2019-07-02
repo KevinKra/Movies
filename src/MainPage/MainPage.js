@@ -8,18 +8,71 @@ import API_KEY from "../api/";
 
 class MainPage extends Component {
   state = {
-    movies: []
+    popularMovies: [],
+    actionMovies: [],
+    trendingMovies: [],
+    trendingShows: [],
+    classicMovies: [],
+    classicShows: []
   };
   componentDidMount() {
-    this.callData();
+    this.fetchTrendingShows();
+    this.fetchTrendingMovies();
+    this.fetchPopularMovies();
+    this.fetchActionMovies();
+    this.fetchClassicMovies();
+    this.fetchClassicShows();
   }
 
-  callData = async () => {
+  fetchPopularMovies = async () => {
     let response = await fetch(
       `https://api.themoviedb.org/3/discover/movie?certification_country=US&api_key=${API_KEY}`
     );
     const movies = await response.json();
-    this.setState({ movies: movies.results });
+    this.setState({ popularMovies: movies.results });
+  };
+
+  fetchActionMovies = async () => {
+    let response = await fetch(
+      `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=28`
+    );
+    const movies = await response.json();
+    this.setState({ actionMovies: movies.results });
+  };
+
+  fetchTrendingMovies = async () => {
+    let response = await fetch(
+      `https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}
+      `
+    );
+    const movies = await response.json();
+    this.setState({ trendingMovies: movies.results });
+  };
+
+  fetchTrendingShows = async () => {
+    let response = await fetch(
+      `https://api.themoviedb.org/3/trending/tv/week?api_key=${API_KEY}
+      `
+    );
+    const movies = await response.json();
+    this.setState({ trendingShows: movies.results });
+  };
+
+  fetchClassicMovies = async () => {
+    let response = await fetch(
+      `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`
+    );
+    const movies = await response.json();
+    this.setState({ classicMovies: movies.results });
+  };
+
+  fetchClassicShows = async () => {
+    let response = await fetch(
+      `https://api.themoviedb.org/3/tv/top_rated?api_key=${API_KEY}&language=en-US&page=1
+      `
+    );
+    const movies = await response.json();
+    this.setState({ classicShows: movies.results });
   };
 
   render() {
@@ -27,10 +80,19 @@ class MainPage extends Component {
       <main className="MainPage">
         <HeroContent films={this.state.movies} />
         <section className="main-content">
-          <Carousel title="Popular movies" films={this.state.movies} />
+          <Carousel title="Popular Movies" films={this.state.popularMovies} />
+          <Carousel title="Trending Shows" films={this.state.trendingShows} />
+          <Carousel title="Trending Movies" films={this.state.trendingMovies} />
           <HeroGrid />
-          <Carousel title="Popular movies" films={this.state.movies} />
-          <Carousel title="Popular movies" films={this.state.movies} />
+          <Carousel
+            title="Timeless Classic Movies"
+            films={this.state.classicMovies}
+          />
+          <Carousel
+            title="Your Favorite Shows"
+            films={this.state.classicShows}
+          />
+          <Carousel title="Action movies" films={this.state.actionMovies} />
         </section>
         <Footer />
       </main>

@@ -13,10 +13,12 @@ export default function InfoExtend(props) {
       <div className="background-image">
         <div className="img-gradient">
           <section>
-            <h1>{props.information.title}</h1>
-            <p>{props.information.overview}</p>
-            <p>{props.information.vote_average}</p>
-            <p>{props.information.original_language}</p>
+            <h1>{props.information.title || props.information.name}</h1>
+            <p className="overview">{props.information.overview}</p>
+            <div className="support">
+              <p>Average Rating: {props.information.vote_average}</p>
+              <p className="language">{props.information.original_language}</p>
+            </div>
           </section>
         </div>
         <img src={backgroundImage} alt="" />

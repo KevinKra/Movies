@@ -5,7 +5,7 @@
   position: relative;
   color: $text-light;
   width: 100vw;
-  height: 650px;
+  height: 825px;
   animation: slideInLeft 0.5s forwards;
   animation-duration: 1s;
   .hero-image {
@@ -36,9 +36,13 @@
     }
   }
   .hero-movie-support {
-    bottom: 7rem;
+    bottom: 12rem;
     right: 4vw;
     position: absolute;
+  }
+  .rating {
+    border: 1px solid $text-light;
+    padding: 0.4rem 1rem;
   }
   .opacity-filter {
     position: absolute;
@@ -51,5 +55,11 @@
     top: 0;
     height: 100%;
     width: 100%;
+  }
+  button {
+    border: 1px solid $text-light;
+    color: $text-light;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.26);
   }
 }

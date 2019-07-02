@@ -35,7 +35,7 @@ export default class NavBar extends Component {
       >
         <div className="nav-width">
           <h3>Galleria</h3>
-          <div className="NavLinks">
+          <div className="nav-links">
             <NavLink to="/" activeClassName="selected">
               Login
             </NavLink>
