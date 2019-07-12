@@ -24,3 +24,21 @@ export const trendingShows = (state = [], action) => {
       return state;
   }
 };
+
+export const actionMovies = (state = [], action) => {
+  switch (action.type) {
+    case "ADD_ACTION_MOVIES":
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
+export const classicMovies = (state = [], action) => {
+  switch (action.type) {
+    case "ADD_CLASSIC_MOVIES":
+      return action.payload;
+    default:
+      return state;
+  }
+};
