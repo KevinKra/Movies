@@ -79,6 +79,7 @@ class MainPage extends Component {
       `
     );
     const movies = await response.json();
+    this.props.addClassicShows(movies.results);
     this.setState({ classicShows: movies.results });
   };
 
@@ -112,7 +113,8 @@ const mapStateToProps = store => ({
   trendingMovies: store.trendingMovies,
   actionMovies: store.actionMovies,
   classicMovies: store.classicMovies,
-  trendingShows: store.trendingShows
+  trendingShows: store.trendingShows,
+  classicShows: store.classicShows
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -120,7 +122,8 @@ const mapDispatchToProps = dispatch => ({
   addTrendingMovies: movies => dispatch(actions.addTrendingMovies(movies)),
   addActionMovies: movies => dispatch(actions.addActionMovies(movies)),
   addClassicMovies: movies => dispatch(actions.addClassicMovies(movies)),
-  addTrendingShows: shows => dispatch(actions.addTrendingShows(shows))
+  addTrendingShows: shows => dispatch(actions.addTrendingShows(shows)),
+  addClassicShows: shows => dispatch(actions.addClassicShows(shows))
 });
 
 export default connect(
