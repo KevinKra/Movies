@@ -40,6 +40,7 @@ class MainPage extends Component {
       `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=28`
     );
     const movies = await response.json();
+    this.props.addActionMovies(movies.results);
     this.setState({ actionMovies: movies.results });
   };
 
@@ -68,6 +69,7 @@ class MainPage extends Component {
       `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`
     );
     const movies = await response.json();
+    this.props.addClassicMovies(movies.results);
     this.setState({ classicMovies: movies.results });
   };
 
@@ -105,15 +107,19 @@ class MainPage extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  popularMovies: state.popularMovies,
-  trendingMovies: state.trendingMovies,
-  trendingShows: state.trendingShows
+const mapStateToProps = store => ({
+  popularMovies: store.popularMovies,
+  trendingMovies: store.trendingMovies,
+  actionMovies: store.actionMovies,
+  classicMovies: store.classicMovies,
+  trendingShows: store.trendingShows
 });
 
 const mapDispatchToProps = dispatch => ({
   addPopularMovies: movies => dispatch(actions.addPopularMovies(movies)),
   addTrendingMovies: movies => dispatch(actions.addTrendingMovies(movies)),
+  addActionMovies: movies => dispatch(actions.addActionMovies(movies)),
+  addClassicMovies: movies => dispatch(actions.addClassicMovies(movies)),
   addTrendingShows: shows => dispatch(actions.addTrendingShows(shows))
 });
 
