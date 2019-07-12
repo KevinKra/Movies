@@ -1,140 +1,38 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actions from "../../_redux/actions/";
+import * as apiCalls from "../../api/apiCalls";
 import "./MainPage.scss";
 import HeroContent from "../../components/HeroContent/HeroContent";
 import Carousel from "../../components/Carousel/Carousel";
 import HeroGrid from "../../components/HeroGrid/HeroGrid";
 import Footer from "../../components/Footer/Footer";
-import API_KEY from "../../api/";
 
 class MainPage extends Component {
-  state = {
-    popularMovies: [],
-    actionMovies: [],
-    trendingMovies: [],
-    trendingShows: [],
-    classicMovies: [],
-    classicShows: []
+  componentDidMount = async () => {
+    this.fetchData();
   };
 
-  componentDidMount() {
-    this.fetchAllContent();
-    // this.fetchTrendingShows();
-    // this.fetchTrendingMovies();
-    // this.fetchPopularMovies();
-    // this.fetchActionMovies();
-    // this.fetchClassicMovies();
-    // this.fetchClassicShows();
-  }
-
-  fetchAllContent = async () => {
-    const resolution = Promise.all([
-      this.fetchTrendingShows(),
-      this.fetchTrendingMovies(),
-      this.fetchPopularMovies(),
-      this.fetchActionMovies(),
-      this.fetchClassicMovies(),
-      this.fetchClassicShows()
-    ]);
-    const output = await resolution;
-    this.props.addPopularMovies(output[0]);
-    this.props.addTrendingMovies(output[1]);
-    this.props.addActionMovies(output[2]);
-    this.props.addClassicMovies(output[3]);
-    this.props.addTrendingShows(output[4]);
-    this.props.addClassicShows(output[5]);
-    this.setState({
-      popularMovies: this.props.popularMovies,
-      actionMovies: this.props.actionMovies,
-      trendingMovies: this.props.trendingMovies,
-      trendingShows: this.props.trendingShows,
-      classicMovies: this.props.classicMovies,
-      classicShows: this.props.classicShows
-    });
+  fetchData = async () => {
+    const fetchedData = await apiCalls.fetchAllContent();
+    this.storeData(fetchedData);
   };
 
-  fetchPopularMovies = async () => {
-    let response = await fetch(
-      `https://api.themoviedb.org/3/discover/movie?certification_country=US&api_key=${API_KEY}`
-    );
-    const movies = await response.json();
-    this.props.addPopularMovies(movies.results);
-    return movies.results;
-    // this.setState({ popularMovies: movies.results });
-  };
-
-  fetchActionMovies = async () => {
-    let response = await fetch(
-      `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=28`
-    );
-    const movies = await response.json();
-    this.props.addActionMovies(movies.results);
-    return movies.results;
-    // this.setState({ actionMovies: movies.results });
-  };
-
-  fetchTrendingMovies = async () => {
-    let response = await fetch(
-      `https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}
-      `
-    );
-    const movies = await response.json();
-    this.props.addTrendingMovies(movies.results);
-    return movies.results;
-    // this.setState({ trendingMovies: movies.results });
-  };
-
-  fetchTrendingShows = async () => {
-    let response = await fetch(
-      `https://api.themoviedb.org/3/trending/tv/week?api_key=${API_KEY}
-      `
-    );
-    const movies = await response.json();
-    this.props.addTrendingShows(movies.results);
-    return movies.results;
-    // this.setState({ trendingShows: movies.results });
-  };
-
-  fetchClassicMovies = async () => {
-    let response = await fetch(
-      `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`
-    );
-    const movies = await response.json();
-    this.props.addClassicMovies(movies.results);
-    return movies.results;
-    // this.setState({ classicMovies: movies.results });
-  };
-
-  fetchClassicShows = async () => {
-    let response = await fetch(
-      `https://api.themoviedb.org/3/tv/top_rated?api_key=${API_KEY}&language=en-US&page=1
-      `
-    );
-    const movies = await response.json();
-    this.props.addClassicShows(movies.results);
-    return movies.results;
-    // this.setState({ classicShows: movies.results });
+  storeData = data => {
+    this.props.addLandingContent(data);
   };
 
   render() {
     return (
       <main className="MainPage">
-        <HeroContent films={this.state.movies} />
+        <HeroContent />
         <section className="main-content">
-          <Carousel title="Popular Movies" films={this.state.popularMovies} />
-          <Carousel title="Trending Shows" films={this.state.trendingShows} />
-          <Carousel title="Trending Movies" films={this.state.trendingMovies} />
+          {this.props.landingContent.map((element, i) => {
+            return (
+              <Carousel title={element.format} films={element.movies} key={i} />
+            );
+          })}
           <HeroGrid />
-          <Carousel
-            title="Timeless Classic Movies"
-            films={this.state.classicMovies}
-          />
-          <Carousel
-            title="Your Favorite Shows"
-            films={this.state.classicShows}
-          />
-          <Carousel title="Action movies" films={this.state.actionMovies} />
         </section>
         <Footer />
       </main>
@@ -143,21 +41,11 @@ class MainPage extends Component {
 }
 
 const mapStateToProps = store => ({
-  popularMovies: store.popularMovies,
-  trendingMovies: store.trendingMovies,
-  actionMovies: store.actionMovies,
-  classicMovies: store.classicMovies,
-  trendingShows: store.trendingShows,
-  classicShows: store.classicShows
+  landingContent: store.landingContent
 });
 
 const mapDispatchToProps = dispatch => ({
-  addPopularMovies: movies => dispatch(actions.addPopularMovies(movies)),
-  addTrendingMovies: movies => dispatch(actions.addTrendingMovies(movies)),
-  addActionMovies: movies => dispatch(actions.addActionMovies(movies)),
-  addClassicMovies: movies => dispatch(actions.addClassicMovies(movies)),
-  addTrendingShows: shows => dispatch(actions.addTrendingShows(shows)),
-  addClassicShows: shows => dispatch(actions.addClassicShows(shows))
+  addLandingContent: content => dispatch(actions.addLandingContent(content))
 });
 
 export default connect(
