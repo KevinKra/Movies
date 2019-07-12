@@ -17,17 +17,18 @@ class MainPage extends Component {
     classicMovies: [],
     classicShows: []
   };
+
   componentDidMount() {
-    // this.fetchAllContent();
-    this.fetchTrendingShows();
-    this.fetchTrendingMovies();
-    this.fetchPopularMovies();
-    this.fetchActionMovies();
-    this.fetchClassicMovies();
-    this.fetchClassicShows();
+    this.fetchAllContent();
+    // this.fetchTrendingShows();
+    // this.fetchTrendingMovies();
+    // this.fetchPopularMovies();
+    // this.fetchActionMovies();
+    // this.fetchClassicMovies();
+    // this.fetchClassicShows();
   }
 
-  fetchAllContent = () => {
+  fetchAllContent = async () => {
     const resolution = Promise.all([
       this.fetchTrendingShows(),
       this.fetchTrendingMovies(),
@@ -36,7 +37,21 @@ class MainPage extends Component {
       this.fetchClassicMovies(),
       this.fetchClassicShows()
     ]);
-    console.log(resolution);
+    const output = await resolution;
+    this.props.addPopularMovies(output[0]);
+    this.props.addTrendingMovies(output[1]);
+    this.props.addActionMovies(output[2]);
+    this.props.addClassicMovies(output[3]);
+    this.props.addTrendingShows(output[4]);
+    this.props.addClassicShows(output[5]);
+    this.setState({
+      popularMovies: this.props.popularMovies,
+      actionMovies: this.props.actionMovies,
+      trendingMovies: this.props.trendingMovies,
+      trendingShows: this.props.trendingShows,
+      classicMovies: this.props.classicMovies,
+      classicShows: this.props.classicShows
+    });
   };
 
   fetchPopularMovies = async () => {
@@ -45,7 +60,8 @@ class MainPage extends Component {
     );
     const movies = await response.json();
     this.props.addPopularMovies(movies.results);
-    this.setState({ popularMovies: movies.results });
+    return movies.results;
+    // this.setState({ popularMovies: movies.results });
   };
 
   fetchActionMovies = async () => {
@@ -54,7 +70,8 @@ class MainPage extends Component {
     );
     const movies = await response.json();
     this.props.addActionMovies(movies.results);
-    this.setState({ actionMovies: movies.results });
+    return movies.results;
+    // this.setState({ actionMovies: movies.results });
   };
 
   fetchTrendingMovies = async () => {
@@ -64,7 +81,8 @@ class MainPage extends Component {
     );
     const movies = await response.json();
     this.props.addTrendingMovies(movies.results);
-    this.setState({ trendingMovies: movies.results });
+    return movies.results;
+    // this.setState({ trendingMovies: movies.results });
   };
 
   fetchTrendingShows = async () => {
@@ -74,7 +92,8 @@ class MainPage extends Component {
     );
     const movies = await response.json();
     this.props.addTrendingShows(movies.results);
-    this.setState({ trendingShows: movies.results });
+    return movies.results;
+    // this.setState({ trendingShows: movies.results });
   };
 
   fetchClassicMovies = async () => {
@@ -83,7 +102,8 @@ class MainPage extends Component {
     );
     const movies = await response.json();
     this.props.addClassicMovies(movies.results);
-    this.setState({ classicMovies: movies.results });
+    return movies.results;
+    // this.setState({ classicMovies: movies.results });
   };
 
   fetchClassicShows = async () => {
@@ -93,7 +113,8 @@ class MainPage extends Component {
     );
     const movies = await response.json();
     this.props.addClassicShows(movies.results);
-    this.setState({ classicShows: movies.results });
+    return movies.results;
+    // this.setState({ classicShows: movies.results });
   };
 
   render() {
