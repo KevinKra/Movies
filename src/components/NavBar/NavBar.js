@@ -25,14 +25,7 @@ export default class NavBar extends Component {
   }
   render() {
     return (
-      <nav
-        className={`NavBar ${this.state.opacity ? "solid" : "transparent"}`}
-        onScroll={() =>
-          function() {
-            console.log("hello");
-          }
-        }
-      >
+      <nav className={`NavBar ${this.state.opacity ? "solid" : "transparent"}`}>
         <div className="nav-width">
           <h3>Galleria</h3>
           <div className="nav-links">
