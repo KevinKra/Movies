@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import * as actions from "../_redux/actions/index";
 import "./MainPage.scss";
 import HeroContent from "../HeroContent/HeroContent";
 import Carousel from "../Carousel/Carousel";
@@ -29,6 +31,7 @@ class MainPage extends Component {
       `https://api.themoviedb.org/3/discover/movie?certification_country=US&api_key=${API_KEY}`
     );
     const movies = await response.json();
+    this.props.addPopularMovies(movies.results);
     this.setState({ popularMovies: movies.results });
   };
 
@@ -46,6 +49,7 @@ class MainPage extends Component {
       `
     );
     const movies = await response.json();
+    this.props.addTrendingMovies(movies.results);
     this.setState({ trendingMovies: movies.results });
   };
 
@@ -55,6 +59,7 @@ class MainPage extends Component {
       `
     );
     const movies = await response.json();
+    this.props.addTrendingShows(movies.results);
     this.setState({ trendingShows: movies.results });
   };
 
@@ -100,4 +105,19 @@ class MainPage extends Component {
   }
 }
 
-export default MainPage;
+const mapStateToProps = state => ({
+  popularMovies: state.popularMovies,
+  trendingMovies: state.trendingMovies,
+  trendingShows: state.trendingShows
+});
+
+const mapDispatchToProps = dispatch => ({
+  addPopularMovies: movies => dispatch(actions.addPopularMovies(movies)),
+  addTrendingMovies: movies => dispatch(actions.addTrendingMovies(movies)),
+  addTrendingShows: shows => dispatch(actions.addTrendingShows(shows))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MainPage);
