@@ -1,6 +1,6 @@
 import React from "react";
-import * as utils from "../utils/";
-import { curatedData } from "../data";
+import * as utils from "../../_utils/";
+import { curatedData } from "../../_utils/data";
 import "./HeroContent.scss";
 
 export const HeroContent = props => {

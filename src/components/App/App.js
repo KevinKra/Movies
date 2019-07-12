@@ -2,7 +2,7 @@ import React from "react";
 import "./App.scss";
 import { Route } from "react-router-dom";
 import LoginPage from "../LoginPage/LoginPage";
-import MainPage from "../MainPage/MainPage";
+import MainPage from "../../containers/MainPage/MainPage";
 import NavBar from "../NavBar/NavBar";
 
 function App() {
