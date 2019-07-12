@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import * as actions from "../_redux/actions/index";
 import "./MainPage.scss";
 import HeroContent from "../HeroContent/HeroContent";
 import Carousel from "../Carousel/Carousel";
@@ -29,6 +31,7 @@ class MainPage extends Component {
       `https://api.themoviedb.org/3/discover/movie?certification_country=US&api_key=${API_KEY}`
     );
     const movies = await response.json();
+    this.props.addPopularMovies(movies.results);
     this.setState({ popularMovies: movies.results });
   };
 
@@ -37,6 +40,7 @@ class MainPage extends Component {
       `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=28`
     );
     const movies = await response.json();
+    this.props.addActionMovies(movies.results);
     this.setState({ actionMovies: movies.results });
   };
 
@@ -46,6 +50,7 @@ class MainPage extends Component {
       `
     );
     const movies = await response.json();
+    this.props.addTrendingMovies(movies.results);
     this.setState({ trendingMovies: movies.results });
   };
 
@@ -55,6 +60,7 @@ class MainPage extends Component {
       `
     );
     const movies = await response.json();
+    this.props.addTrendingShows(movies.results);
     this.setState({ trendingShows: movies.results });
   };
 
@@ -63,6 +69,7 @@ class MainPage extends Component {
       `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`
     );
     const movies = await response.json();
+    this.props.addClassicMovies(movies.results);
     this.setState({ classicMovies: movies.results });
   };
 
@@ -72,6 +79,7 @@ class MainPage extends Component {
       `
     );
     const movies = await response.json();
+    this.props.addClassicShows(movies.results);
     this.setState({ classicShows: movies.results });
   };
 
@@ -100,4 +108,25 @@ class MainPage extends Component {
   }
 }
 
-export default MainPage;
+const mapStateToProps = store => ({
+  popularMovies: store.popularMovies,
+  trendingMovies: store.trendingMovies,
+  actionMovies: store.actionMovies,
+  classicMovies: store.classicMovies,
+  trendingShows: store.trendingShows,
+  classicShows: store.classicShows
+});
+
+const mapDispatchToProps = dispatch => ({
+  addPopularMovies: movies => dispatch(actions.addPopularMovies(movies)),
+  addTrendingMovies: movies => dispatch(actions.addTrendingMovies(movies)),
+  addActionMovies: movies => dispatch(actions.addActionMovies(movies)),
+  addClassicMovies: movies => dispatch(actions.addClassicMovies(movies)),
+  addTrendingShows: shows => dispatch(actions.addTrendingShows(shows)),
+  addClassicShows: shows => dispatch(actions.addClassicShows(shows))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MainPage);
