@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import * as actions from "../_redux/actions/index";
+import * as actions from "../../_redux/actions/";
 import "./MainPage.scss";
-import HeroContent from "../HeroContent/HeroContent";
-import Carousel from "../Carousel/Carousel";
-import HeroGrid from "../HeroGrid/HeroGrid";
-import Footer from "../Footer/Footer";
-import API_KEY from "../api/";
+import HeroContent from "../../components/HeroContent/HeroContent";
+import Carousel from "../../components/Carousel/Carousel";
+import HeroGrid from "../../components/HeroGrid/HeroGrid";
+import Footer from "../../components/Footer/Footer";
+import API_KEY from "../../api/";
 
 class MainPage extends Component {
   state = {
@@ -18,6 +18,7 @@ class MainPage extends Component {
     classicShows: []
   };
   componentDidMount() {
+    // this.fetchAllContent();
     this.fetchTrendingShows();
     this.fetchTrendingMovies();
     this.fetchPopularMovies();
@@ -25,6 +26,18 @@ class MainPage extends Component {
     this.fetchClassicMovies();
     this.fetchClassicShows();
   }
+
+  fetchAllContent = () => {
+    const resolution = Promise.all([
+      this.fetchTrendingShows(),
+      this.fetchTrendingMovies(),
+      this.fetchPopularMovies(),
+      this.fetchActionMovies(),
+      this.fetchClassicMovies(),
+      this.fetchClassicShows()
+    ]);
+    console.log(resolution);
+  };
 
   fetchPopularMovies = async () => {
     let response = await fetch(

@@ -1,12 +1,12 @@
 import React from "react";
-import * as utils from "../utils/";
+import * as utils from "../../_utils/";
 import "./HeroGrid.scss";
-import image1 from "../images/woman-climbing.jpg";
-import image2 from "../images/man-in-forest.jpg";
-import image3 from "../images/kids-show.jpg";
-import image4 from "../images/live-game.jpg";
-import image5 from "../images/originals-kid.jpg";
-import image6 from "../images/sitting-at-car.jpg";
+import image1 from "../../_utils/images/woman-climbing.jpg";
+import image2 from "../../_utils/images/man-in-forest.jpg";
+import image3 from "../../_utils/images/kids-show.jpg";
+import image4 from "../../_utils/images/live-game.jpg";
+import image5 from "../../_utils/images/originals-kid.jpg";
+import image6 from "../../_utils/images/sitting-at-car.jpg";
 
 const HeroGrid = () => {
   return (
