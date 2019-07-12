@@ -6,5 +6,6 @@ export const rootReducer = combineReducers({
   trendingMovies: reducers.trendingMovies,
   actionMovies: reducers.actionMovies,
   classicMovies: reducers.classicMovies,
-  trendingShows: reducers.trendingShows
+  trendingShows: reducers.trendingShows,
+  classicShows: reducers.classicShows
 });

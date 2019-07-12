@@ -22,3 +22,8 @@ export const addClassicMovies = movies => ({
   type: "ADD_CLASSIC_MOVIES",
   payload: movies
 });
+
+export const addClassicShows = shows => ({
+  type: "ADD_CLASSIC_SHOWS",
+  payload: shows
+});

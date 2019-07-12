@@ -42,3 +42,12 @@ export const classicMovies = (state = [], action) => {
       return state;
   }
 };
+
+export const classicShows = (state = [], action) => {
+  switch (action.type) {
+    case "ADD_CLASSIC_SHOWS":
+      return action.payload;
+    default:
+      return state;
+  }
+};
