@@ -14,8 +14,8 @@ class MainPage extends Component {
   };
 
   fetchData = async () => {
-    const fetchedData = await apiCalls.fetchAllContent();
-    this.storeData(fetchedData);
+    this.props.landingContent.length === 0 &&
+      this.storeData(await apiCalls.fetchAllContent());
   };
 
   storeData = data => {
